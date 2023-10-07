@@ -1,6 +1,6 @@
 from email.mime.multipart import MIMEMultipart
-import smtplib
 from email.mime.text import MIMEText
+import smtplib
 
 
 class EmailSender:
@@ -14,8 +14,10 @@ class EmailSender:
         self.smtp_user = smtp_user
         self.smtp_password = smtp_password
 
-    def sendFeedsEmail(self, feeds) -> None:
-        body = self.createEmailBody(feeds)
+    def send_feeds_email(self, feeds) -> None:
+        """Function sends email containing feeds' entries."""
+
+        body = self.create_email_body(feeds)
 
         mail = MIMEMultipart('alternative')
         mail['From'] = self.sender
@@ -29,17 +31,19 @@ class EmailSender:
             smtp_server.sendmail(self.sender, self.receiver, mail.as_string())
             smtp_server.quit()
 
-    def createEmailBody(self, feeds) -> str:
+    def create_email_body(self, feeds) -> str:
+        """Function create body of the feeds email."""
+
         body = """
         <!doctype html><html>
           <head></head>
           <body style="font-family: sans-serif;"><p><h1>Hello</h1><p>I think that you should read below articles ;-)</p>
          """
         for feed in feeds:
-            body = body + f'<h2>{feed.name}</h2><ul>'
+            body = body + f'<h2>{feed.name}</h2><p><ul>'
             for entry in feed.entries:
                 body = body + \
                     f'<li><a href="{entry.url}">{entry.title}</a><br />{entry.summary}</li>'
-            body = body + '</ul>'
+            body = body + '</ul></p>'
 
-        return body + "</p></body></html>"
+        return body + "</body></html>"

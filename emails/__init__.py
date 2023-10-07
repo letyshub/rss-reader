@@ -1,3 +1,3 @@
 """Module providing a function printing python version."""
 
-from .emailSender import *
+from .email_sender import *

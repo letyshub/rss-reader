@@ -4,6 +4,8 @@ import datetime
 
 
 def get_period(period: str):
+    """Function return correct period's date for given `period` attribute."""
+
     today = date.today()
     period_date = today - timedelta(days=1)
     if period == 'w':
