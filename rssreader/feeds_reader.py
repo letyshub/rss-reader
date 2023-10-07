@@ -6,7 +6,7 @@ import logging
 from rssreader.feed import Feed
 
 
-class RssReader:
+class FeedsReader:
     def __init__(self, feedUrls) -> None:
         self.urls = feedUrls
 

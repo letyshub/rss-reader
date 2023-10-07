@@ -5,7 +5,7 @@ import sys
 
 from emails import EmailSender
 from helpers.time_helper import get_period
-from rssreader import RssReader
+from feeds_reader import FeedsReader
 
 
 def configureLogging() -> None:
@@ -27,7 +27,7 @@ def main() -> int:
     configureLogging()
     logging.info('Starting application')
     config = loadConfiguration()
-    rss_reader = RssReader(config['feeds'])
+    rss_reader = FeedsReader(config['feeds'])
     feeds = rss_reader.getFeeds(get_period(config['period']))
     email_sender = EmailSender(config['feeds-email-sender'],
                                config['feeds-email-recipient'], config['smtp-host'], config['smtp-port'], config['smtp-user'], config['smtp-password'])
