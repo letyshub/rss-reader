@@ -11,6 +11,6 @@ def get_period(period: str):
     if period == 'w':
         period_date = today - timedelta(weeks=1)
     if period == 'm':
-        period_date = today - timedelta(months=1)
+        period_date = today - timedelta(days=30)
 
     return datetime.datetime(period_date.year, period_date.month, period_date.day)
