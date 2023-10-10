@@ -1,0 +1,10 @@
+{
+    "feeds": [],
+    "period": "d",
+    "feeds-email-recipient": "",
+    "feeds-email-sender": "",
+    "smtp-host": "",
+    "smtp-port": 465,
+    "smtp-user": "",
+    "smtp-password": ""
+}
