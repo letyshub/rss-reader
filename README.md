@@ -29,3 +29,9 @@ python ./rss_reader.py
 ```
 pip install feedparser --user
 ```
+
+## Run tests
+
+```
+python -m unittest discover
+```

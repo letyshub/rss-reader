@@ -5,6 +5,7 @@ from helpers.time_helper import get_period
 
 
 class TestTimeHelperMethods(unittest.TestCase):
+    """Class representing tests of time_helper.py"""
 
     def test_get_period_week(self):
         """Tests get_period for week period. Should return last week's date"""
